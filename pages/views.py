@@ -1,12 +1,15 @@
 # pages/views.py
+from requests import request
 from django.http import HttpResponse
+from django.shortcuts import render
+from django.views.generic import TemplateView
 import gspread
 import pandas as pd
 import numpy as np
 from oauth2client.service_account import ServiceAccountCredentials
 
 
-def homePageView(request):
+""" def homePageView(request):
 
 	# defining the scope of the application
 	scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
@@ -24,9 +27,13 @@ def homePageView(request):
 	df = pd.DataFrame(wks.get_all_records())
 	df.head()
 
-	return HttpResponse(df["Event Date"][0])
+	return HttpResponse(df["Event Date"][0]) """
 
-def get_all_data(request):
-    data =pd.DataFrame(np.random.randn(20, 5)) 
+class HomePageView(TemplateView):
+	template_name = "home.html"
+	
 
-    render(request, 'template.html', {'data': data.to_html()})
+
+def dataView(request):
+	data =pd.DataFrame(np.random.randn(20, 5)) 
+	render(request, 'index.html', {'data': data.to_html()})
