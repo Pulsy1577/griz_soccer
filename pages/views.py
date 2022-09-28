@@ -2,6 +2,7 @@
 from django.http import HttpResponse
 import gspread
 import pandas as pd
+import numpy as np
 from oauth2client.service_account import ServiceAccountCredentials
 
 
@@ -24,3 +25,8 @@ def homePageView(request):
 	df.head()
 
 	return HttpResponse(df["Event Date"][0])
+
+def get_all_data(request):
+    data =pd.DataFrame(np.random.randn(20, 5)) 
+
+    render(request, 'template.html', {'data': data.to_html()})
