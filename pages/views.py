@@ -29,11 +29,26 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 	return HttpResponse(df["Event Date"][0]) """
 
+
+def dataHelp():
+	context = "helloooo"
+	return HttpResponse(context)
+
 class HomePageView(TemplateView):
 	template_name = "home.html"
+
+class indexView(TemplateView):
+	template_name = "index.html"
+	print(dataHelp())
+
+
+
+
 	
 
 
 def dataView(request):
+	template_name = "index.html"
 	data =pd.DataFrame(np.random.randn(20, 5)) 
-	render(request, 'index.html', {'data': data.to_html()})
+	#return HttpResponse(data)
+	render(request, template_name, data)
