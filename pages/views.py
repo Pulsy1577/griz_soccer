@@ -8,6 +8,7 @@ import pandas as pd
 import numpy as np
 from oauth2client.service_account import ServiceAccountCredentials
 
+from . import plotly_app as papp
 
 """ def homePageView(request):
 
@@ -49,3 +50,7 @@ def dataView(request):
     data = pd.DataFrame(np.random.randn(20, 5))
     # return HttpResponse(data)
     render(request, template_name, data)
+
+
+class DashboardView(TemplateView):
+    template_name = "dash_test.html"
