@@ -3,3 +3,4 @@ auth.json
 db.sqlite3
 pages/__pycache__/*
 GrizSoccer/__pycache__/*
+db.sqlite3

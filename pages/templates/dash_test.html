@@ -1,6 +1,8 @@
 {%load plotly_dash%}
-{% block content %}
-<div style="height: 500px;">
-    {%plotly_app name="ACWR_App"%}
-</div>
-{% endblock %}
+{% load static %}
+<link href="{% static 'style.css' %}" rel="stylesheet">
+{% plotly_header %}
+
+{% plotly_direct name="ACWR_App" %}
+
+{% plotly_footer %}
