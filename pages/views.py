@@ -31,24 +31,21 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 
 def dataHelp():
-	context = "helloooo"
-	return HttpResponse(context)
+    context = "helloooo"
+    return HttpResponse(context)
+
 
 class HomePageView(TemplateView):
-	template_name = "home.html"
+    template_name = "home.html"
+
 
 class indexView(TemplateView):
-	template_name = "index.html"
-	print(dataHelp())
-
-
-
-
-	
+    template_name = "index.html"
+    print(dataHelp())
 
 
 def dataView(request):
-	template_name = "index.html"
-	data =pd.DataFrame(np.random.randn(20, 5)) 
-	#return HttpResponse(data)
-	render(request, template_name, data)
+    template_name = "index.html"
+    data = pd.DataFrame(np.random.randn(20, 5))
+    # return HttpResponse(data)
+    render(request, template_name, data)
