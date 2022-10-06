@@ -163,6 +163,7 @@ def update_charts(Name, start_date, end_date, stat_type, fig):
                 "colorway": ["#17B897"],
                 "height": 400,
             },
+            "config": {"displayModeBar": False, "height": 400},
         }
     ]
     return acwr_char_figure
