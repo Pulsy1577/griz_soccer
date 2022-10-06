@@ -13,7 +13,7 @@ spread = Spread("Griz Soccer Analytics")
 spt_data = spread.sheet_to_df(index=0, header_rows=1, sheet="SPT FULL")
 print(spt_data.columns)
 base_df = pd.read_csv(pjoin(BASE_DIR, "test_data", "base_col.csv"))
-base_df["Zone 5 Distance [m]"] = base_df["Zone 5 Distance [m]"].astype(float)
+base_df["Zone_5_Distance"] = base_df["Zone_5_Distance"].astype(float)
 
 # TODO fix the columns so that the types can be copied over
 spt_data = spt_data.astype(base_df.dtypes.to_dict())
