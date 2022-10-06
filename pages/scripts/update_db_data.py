@@ -7,12 +7,13 @@ from gspread_pandas import Spread, Client
 
 import acwr_calc
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+DIR_UP = Path(__file__).resolve().parent.parent
 
 spread = Spread("Griz Soccer Analytics")
 spt_data = spread.sheet_to_df(index=0, header_rows=1, sheet="SPT FULL")
 
-base_df = pd.read_csv(pjoin(BASE_DIR, "test_data", "base_col.csv"))
+base_df = pd.read_csv(pjoin(DIR_UP, "test_data", "base_col.csv"))
 base_df["Zone_5_Distance"] = base_df["Zone_5_Distance"].astype(float)
 
 # TODO fix the columns so that the types can be copied over

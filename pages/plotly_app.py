@@ -11,6 +11,7 @@ from os.path import join as pjoin
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
 conn = sqlite3.connect("stats_db.sqlite3")
 df_from_db = pd.read_sql_query("SELECT * FROM sdata", conn)
 
