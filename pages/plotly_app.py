@@ -1,5 +1,6 @@
 import sqlite3
 import dash
+import plotly.graph_objects as go
 from dash import html as dhtml
 from dash import dcc
 import pandas as pd
@@ -112,7 +113,8 @@ app.layout = dhtml.Div(
                 dhtml.Div(
                     children=dcc.Graph(
                         id="acwr-chart",
-                        config={"displayModeBar": False},
+                        config={"displayModeBar": False, "height": 400},
+                        figure=go.Figure(),
                     ),
                     className="card",
                 ),
@@ -130,11 +132,17 @@ app.layout = dhtml.Div(
         Input("date-range", "start_date"),
         Input("date-range", "end_date"),
         Input("type-filter", "value"),
+        Input("acwr-chart", "figure"),
     ],
 )
-def update_charts(Name, start_date, end_date, stat_type):
+# TODO add rects for ACWR zones (conditional to stat type)
+def update_charts(Name, start_date, end_date, stat_type, fig):
     mask = (data.Name == Name) & (data.Date >= start_date) & (data.Date <= end_date)
     filtered_data = data.loc[mask, :]
+    y_range = [filtered_data[stat_type].min(), filtered_data[stat_type].max()]
+    if stat_type == "ACWR_AVG":
+        y_range = [0, 2]
+
     acwr_char_figure = [
         {
             "data": [
@@ -146,13 +154,14 @@ def update_charts(Name, start_date, end_date, stat_type):
             ],
             "layout": {
                 "title": {
-                    "text": "Average ACWR",
+                    "text": stat_type,
                     "x": 0.05,
                     "xanchor": "left",
                 },
-                "xaxis": {"fixedrange": True},
-                "yaxis": {"fixedrange": True},
+                "xaxis": {"fixedrange": True, "title": "Date"},
+                "yaxis": {"fixedrange": True, "range": y_range},
                 "colorway": ["#17B897"],
+                "height": 400,
             },
         }
     ]
