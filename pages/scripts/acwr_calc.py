@@ -61,7 +61,7 @@ def create_acwr(df):
         [
             "aEWMAspt",
             "cEWMAspt",
-            "ACWR_EWMA",
+            "acwr_spt",
             "L1_aewma",
             "L1",
             "L2",
@@ -71,7 +71,7 @@ def create_acwr(df):
             "L2_cewma",
             "acwr_l1",
             "acwr_l2",
-            "avg_acwr",
+            "ACWR_AVG",
         ],
         inplace=True,
         axis=1,
@@ -108,7 +108,7 @@ def create_acwr(df):
         PlayerDict[key]["acwr_spt"] = np.NaN
         PlayerDict[key]["acwr_l1"] = np.NaN
         PlayerDict[key]["acwr_l2"] = np.NaN
-        PlayerDict[key]["avg_acwr"] = np.NaN
+        PlayerDict[key]["ACWR_AVG"] = np.NaN
         PlayerDict[key].at[0, "aEWMAspt"] = start_aewma(
             PlayerDict[key].at[0, "Load_2D"]
         )
