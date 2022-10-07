@@ -1,6 +1,7 @@
 import sqlite3
 import dash
 import plotly.graph_objects as go
+import plotly.express as px
 from dash import html as dhtml
 from dash import dcc
 import pandas as pd
@@ -114,7 +115,6 @@ app.layout = dhtml.Div(
                     children=dcc.Graph(
                         id="acwr-chart",
                         config={"displayModeBar": False, "height": 400},
-                        figure=go.Figure(),
                     ),
                     className="card",
                 ),
@@ -132,17 +132,18 @@ app.layout = dhtml.Div(
         Input("date-range", "start_date"),
         Input("date-range", "end_date"),
         Input("type-filter", "value"),
-        Input("acwr-chart", "figure"),
     ],
 )
 # TODO add rects for ACWR zones (conditional to stat type)
-def update_charts(Name, start_date, end_date, stat_type, fig):
+def update_charts(Name, start_date, end_date, stat_type):
     mask = (data.Name == Name) & (data.Date >= start_date) & (data.Date <= end_date)
     filtered_data = data.loc[mask, :]
     y_range = [filtered_data[stat_type].min(), filtered_data[stat_type].max()]
     if stat_type == "ACWR_AVG":
         y_range = [0, 2]
 
+    # TODO figure out how to modify this chart more i.e. shapes and lines
+    # ALSO figure out how to limit resizing of the chart
     acwr_char_figure = [
         {
             "data": [
@@ -161,9 +162,8 @@ def update_charts(Name, start_date, end_date, stat_type, fig):
                 "xaxis": {"fixedrange": True, "title": "Date"},
                 "yaxis": {"fixedrange": True, "range": y_range},
                 "colorway": ["#17B897"],
-                "height": 400,
             },
-            "config": {"displayModeBar": False, "height": 400},
+            "config": {"displayModeBar": False},
         }
     ]
     return acwr_char_figure
