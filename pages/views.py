@@ -35,7 +35,7 @@ def dataHelp():
     return HttpResponse(context)
 
 
-#class HomePageView(TemplateView):
+# class HomePageView(TemplateView):
 #    template_name = "home.html"
 
 
@@ -51,39 +51,43 @@ def dataView(request):
     render(request, template_name, data)
 
 
+class DashboardView(TemplateView):
+    template_name = "dash_test.html"
+
 
 class HomePageView(TemplateView):
 
-	template_name = "home.html"
+    template_name = "home.html"
 
+    def get_context_data(self, **kwargs):
 
+        # defining the scope of the application
+        scope = [
+            "https://spreadsheets.google.com/feeds",
+            "https://www.googleapis.com/auth/drive",
+        ]
 
-	def get_context_data(self, **kwargs):
+        # credentials to the account
+        cred = ServiceAccountCredentials.from_json_keyfile_name("auth.json", scope)
 
-		#defining the scope of the application
-		scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+        # authorize the clientsheet
+        client = gspread.authorize(cred)
 
-		#credentials to the account
-		cred = ServiceAccountCredentials.from_json_keyfile_name('auth.json',scope)
+        # open spreadsheet and specific sheet
+        wks = client.open("Test Data umSoccer Test").sheet1
 
-		# authorize the clientsheet
-		client = gspread.authorize(cred)
+        # wks.update('A1', "test_ian_fin")
+        df = pd.DataFrame(wks.get_all_records())
+        df.head()
 
-		#open spreadsheet and specific sheet
-		wks = client.open("Test Data umSoccer Test").sheet1
+        # Call the base implementation first to get a context
 
-		#wks.update('A1', "test_ian_fin") 
-		df = pd.DataFrame(wks.get_all_records())
-		df.head()
+        ctx = super().get_context_data(**kwargs)
 
-		# Call the base implementation first to get a context
+        # Add your own entry
 
-		ctx = super().get_context_data(**kwargs)
+        ctx["trish"] = "Hello"
+        ctx["ian"] = "Lets go!"
+        ctx["data"] = df["Event Date"][0]
 
-		# Add your own entry
-
-		ctx['trish'] = "Hello"
-		ctx['ian'] = "Lets go!"
-		ctx['data'] = df["Event Date"][0]
-
-		return ctx
+        return ctx

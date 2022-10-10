@@ -1,3 +1,5 @@
 .venv/
 auth.json
 db.sqlite3
+GrizSoccer/__pycache__/*
+pages/__pycache__/*

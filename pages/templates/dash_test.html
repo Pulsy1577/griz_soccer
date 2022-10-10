@@ -1,0 +1,8 @@
+{%load plotly_dash%}
+{% load static %}
+<link href="{% static 'style.css' %}" rel="stylesheet">
+{% plotly_header %}
+
+{% plotly_direct name="ACWR_App" %}
+
+{% plotly_footer %}
