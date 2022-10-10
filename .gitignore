@@ -1,2 +1,9 @@
 .venv/
 auth.json
+GrizSoccer/__pycache__/settings.cpython-38.pyc
+GrizSoccer/__pycache__/settings.cpython-310.pyc
+GrizSoccer/__pycache__/urls.cpython-38.pyc
+GrizSoccer/__pycache__/urls.cpython-310.pyc
+pages/__pycache__/plotly_app.cpython-38.pyc
+pages/__pycache__/urls.cpython-38.pyc
+pages/__pycache__/views.cpython-38.pyc
