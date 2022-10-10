@@ -35,8 +35,8 @@ def dataHelp():
     return HttpResponse(context)
 
 
-class HomePageView(TemplateView):
-    template_name = "home.html"
+#class HomePageView(TemplateView):
+#    template_name = "home.html"
 
 
 class indexView(TemplateView):
@@ -49,3 +49,41 @@ def dataView(request):
     data = pd.DataFrame(np.random.randn(20, 5))
     # return HttpResponse(data)
     render(request, template_name, data)
+
+
+
+class HomePageView(TemplateView):
+
+	template_name = "home.html"
+
+
+
+	def get_context_data(self, **kwargs):
+
+		#defining the scope of the application
+		scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+
+		#credentials to the account
+		cred = ServiceAccountCredentials.from_json_keyfile_name('auth.json',scope)
+
+		# authorize the clientsheet
+		client = gspread.authorize(cred)
+
+		#open spreadsheet and specific sheet
+		wks = client.open("Test Data umSoccer Test").sheet1
+
+		#wks.update('A1', "test_ian_fin") 
+		df = pd.DataFrame(wks.get_all_records())
+		df.head()
+
+		# Call the base implementation first to get a context
+
+		ctx = super().get_context_data(**kwargs)
+
+		# Add your own entry
+
+		ctx['trish'] = "Hello"
+		ctx['ian'] = "Lets go!"
+		ctx['data'] = df["Event Date"][0]
+
+		return ctx
