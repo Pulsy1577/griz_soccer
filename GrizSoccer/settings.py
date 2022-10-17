@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "pages.apps.PagesConfig",
     "django_plotly_dash.apps.DjangoPlotlyDashConfig",
+    "accounts.apps.AccountsConfig",
 ]
 
 MIDDLEWARE = [
@@ -127,5 +128,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "home" 
 LOGOUT_REDIRECT_URL = "home"
 
+AUTH_USER_MODEL = "accounts.CustomUser" 
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
