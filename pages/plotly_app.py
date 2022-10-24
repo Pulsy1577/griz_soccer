@@ -26,6 +26,7 @@ ext_stylesheets = [
         "href": "https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap",
         "rel": "stylesheet",
     },
+    {"href"},
 ]
 
 stat_types = [
@@ -163,7 +164,7 @@ def update_charts(Name, start_date, end_date, stat_type):
                 "yaxis": {"fixedrange": True, "range": y_range},
                 "colorway": ["#17B897"],
             },
-            "config": {"displayModeBar": False},
+            "config": {"displayModeBar": False, "height": 400},
         }
     ]
     return acwr_char_figure
