@@ -6,19 +6,47 @@ from django.views.generic import TemplateView
 import gspread
 import pandas as pd
 import numpy as np
+from django.contrib.auth.mixins import LoginRequiredMixin
 from oauth2client.service_account import ServiceAccountCredentials
 
 
-class indexView(TemplateView):
-    template_name = "index.html"
-    print(dataHelp())
+class indexView(LoginRequiredMixin, TemplateView):
+    #template_name="index.html"
+    
+
+    #def get_queryset(self, *args, **kwargs):
+        #super(indexView, self).__inti__(*args, **kwargs)
+    
+    def get(self, request):
+        #print (self.request)  # Works!
+        #return super(indexView, self).dispatch(request, *args, **kwargs)  # Don't forget this
+        print(self.request.user)
+        user = self.request.user
+        if (user.coach == True):
+            template_name="index.html"
+        else:
+            template_name="home.html"
+        #return HttpResponse(template_name)
+        return render(self.request, template_name)
+
+    #user =  self.user
+
+
+
+    #user = get_queryset()
+
+
+
+
+
 
 
 class DashboardView(TemplateView):
     template_name = "dash_test.html"
 
 class coachView(TemplateView):
-    template_name = ""
+    template_name=""
+
     
 
 
