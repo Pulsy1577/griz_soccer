@@ -22,7 +22,7 @@ class indexView(LoginRequiredMixin, TemplateView):
         print(self.request.user)
         user = self.request.user
         if user.coach == True:
-            template_name = "index.html"
+            template_name = "dash_test.html"
         else:
             template_name = "home.html"
         # return HttpResponse(template_name)
@@ -43,7 +43,7 @@ class coachView(TemplateView):
 
 class HomePageView(TemplateView):
 
-    template_name = "home.html"
+    template_name = "registration/login.html"
 
     def get_context_data(self, **kwargs):
 
