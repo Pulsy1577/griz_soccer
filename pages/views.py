@@ -47,24 +47,24 @@ class HomePageView(TemplateView):
 
     def get_context_data(self, **kwargs):
 
-        # defining the scope of the application
-        scope = [
-            "https://spreadsheets.google.com/feeds",
-            "https://www.googleapis.com/auth/drive",
-        ]
+        # # defining the scope of the application
+        # scope = [
+        #     "https://spreadsheets.google.com/feeds",
+        #     "https://www.googleapis.com/auth/drive",
+        # ]
 
-        # credentials to the account
-        cred = ServiceAccountCredentials.from_json_keyfile_name("auth.json", scope)
+        # # credentials to the account
+        # cred = ServiceAccountCredentials.from_json_keyfile_name("auth.json", scope)
 
-        # authorize the clientsheet
-        client = gspread.authorize(cred)
+        # # authorize the clientsheet
+        # client = gspread.authorize(cred)
 
-        # open spreadsheet and specific sheet
-        wks = client.open("Test Data umSoccer Test").sheet1
+        # # open spreadsheet and specific sheet
+        # wks = client.open("Test Data umSoccer Test").sheet1
 
-        # wks.update('A1', "test_ian_fin")
-        df = pd.DataFrame(wks.get_all_records())
-        df.head()
+        # # wks.update('A1', "test_ian_fin")
+        # df = pd.DataFrame(wks.get_all_records())
+        # df.head()
 
         # Call the base implementation first to get a context
 
@@ -74,6 +74,5 @@ class HomePageView(TemplateView):
 
         ctx["trish"] = "Hello"
         ctx["ian"] = "Lets go!"
-        ctx["data"] = df["Event Date"][0]
 
         return ctx
