@@ -11,43 +11,34 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 
 class indexView(LoginRequiredMixin, TemplateView):
-    #template_name="index.html"
-    
+    # template_name="index.html"
 
-    #def get_queryset(self, *args, **kwargs):
-        #super(indexView, self).__inti__(*args, **kwargs)
-    
+    # def get_queryset(self, *args, **kwargs):
+    # super(indexView, self).__inti__(*args, **kwargs)
+
     def get(self, request):
-        #print (self.request)  # Works!
-        #return super(indexView, self).dispatch(request, *args, **kwargs)  # Don't forget this
+        # print (self.request)  # Works!
+        # return super(indexView, self).dispatch(request, *args, **kwargs)  # Don't forget this
         print(self.request.user)
         user = self.request.user
-        if (user.coach == True):
-            template_name="index.html"
+        if user.coach == True:
+            template_name = "index.html"
         else:
-            template_name="home.html"
-        #return HttpResponse(template_name)
+            template_name = "home.html"
+        # return HttpResponse(template_name)
         return render(self.request, template_name)
 
-    #user =  self.user
+    # user =  self.user
 
-
-
-    #user = get_queryset()
-
-
-
-
-
+    # user = get_queryset()
 
 
 class DashboardView(TemplateView):
     template_name = "dash_test.html"
 
-class coachView(TemplateView):
-    template_name=""
 
-    
+class coachView(TemplateView):
+    template_name = ""
 
 
 class HomePageView(TemplateView):
