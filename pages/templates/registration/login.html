@@ -3,7 +3,8 @@
 
 {% if user.is_authenticated %}
     <p>logged in</p>
-    <a href="{% url 'dash_test' %}">data</a>
+    <!-- <a href="{% url 'dash_test' %}">data</a> -->
+    <meta http-equiv="Refresh" content="0; url={% url 'index' %}" />
 
 {% else %}
 
