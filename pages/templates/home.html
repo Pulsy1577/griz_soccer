@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% if user.is_authenticated %}
+    <p>logged in</p>
+    <meta http-equiv="Refresh" content="0; url={% url 'dash_test' %}" />
+
+
+{% else %}
+
 <h1>HOME TEST?</h1>
 <a href="{% url 'index' %}">data</a>
 <hr>
@@ -15,5 +22,6 @@
 
 
 </body>
+{% endif %}
 
 {% endblock content %}

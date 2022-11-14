@@ -1,8 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Log In</h2>
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Log In</button>
-</form>
+
+<!--{% if user.is_authenticated %}
+    <p>logged in</p>
+    &lt;!&ndash; <a href="{% url 'dash_test' %}">data</a> &ndash;&gt;
+    <meta http-equiv="Refresh" content="0; url={% url 'index' %}" />
+
+{% else %}-->
+
+    <h2>Log In</h2>
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Log In</button>
+    </form>
+<!--{% endif %}-->
 {% endblock content %}
