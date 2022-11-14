@@ -36,6 +36,27 @@ class indexView(LoginRequiredMixin, TemplateView):
 class DashboardView(TemplateView):
     template_name = "dash_test.html"
 
+    # def get(self, request):
+    #     # print (self.request)  # Works!
+    #     # return super(indexView, self).dispatch(request, *args, **kwargs)  # Don't forget this
+    #     print(self.request.user)
+    #     user = self.request.user
+    #     template_name = "dash_test.html"
+    #     # return HttpResponse(template_name)
+    #     return render(self.request, template_name)
+
+    def get_context_data(self, **kwargs):
+
+        # Call the base implementation first to get a context
+
+        ctx = super().get_context_data(**kwargs)
+
+        # Add your own entry
+
+        ctx["user"] = self.request.user
+
+        return ctx
+
 
 class coachView(TemplateView):
     template_name = ""
@@ -79,6 +100,8 @@ class HomePageView(TemplateView):
 
 
 def session_state_view(request, template_name, **kwargs):
+
+    session = request.session
 
     # Set up a context dict here
     context = {}

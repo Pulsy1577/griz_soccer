@@ -7,10 +7,10 @@ urlpatterns = [
     # path("", dataView, name="data"),
     path("templates/index.html", indexView.as_view(), name="index"),
     path("templates/dash_test.html", DashboardView.as_view(), name="dash_test"),
-    path(
-        "dash_test",
-        session_state_view,
-        {"template_name": "dash_test.html"},
-        name="dash-test",
-    ),
+    # path(
+    #     "dash_test",
+    #     session_state_view,
+    #     {"template_name": "dash_test.html"},
+    #     name="dash-test",
+    # ),
 ]

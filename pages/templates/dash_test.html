@@ -1,12 +1,7 @@
+{% extends "base.html" %}
 {% load plotly_dash %}
-{% load static %}
-<link href="{% static 'style.css' %}" rel="stylesheet">
-<!-- {% plotly_header %} -->
-<div style="width: 800px;">{% plotly_app name="ACWR_App" ratio=0.8 %}</div>
-
-
-<!-- {% plotly_footer %} -->
-
-<div class="{%plotly_class name="ACWR_App"%}">
-    {%plotly_app name="ACWR_App" ratio=0.3 %}
-  </div>
+{% block content %}
+  {% load static %}
+  <link href="{% static 'style.css' %}" rel="stylesheet">
+  <div style="width: 1000px;">{% plotly_app name="ACWR_App" ratio=1 %}</div>
+{% endblock content %}
