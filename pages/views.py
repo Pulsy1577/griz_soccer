@@ -76,3 +76,11 @@ class HomePageView(TemplateView):
         ctx["ian"] = "Lets go!"
 
         return ctx
+
+
+def session_state_view(request, template_name, **kwargs):
+
+    # Set up a context dict here
+    context = {}
+
+    return render(request, template_name=template_name, context=context)
