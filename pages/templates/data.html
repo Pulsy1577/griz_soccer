@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Griz Soccer Analytics</title>
+</head>
+<body style="text-align:center;">
+<div class = "showcase">
+</div>
+
+<div id="navbar">
+    <!--<img src="soclogo.png" alt="griz logo" >-->
+    <a href="index.html">HOME</a>
+    <a class="active" href="data.html">DATA</a>
+    <a href="about.html">ABOUT</a>
+    <a href="loginpage.html">LOGIN</a>
+
+</div>
+
+<div class="content">
+    <h3>Data</h3>
+    <p>Below is the data/visualizations with appropriate labels. Sample tables are below.</p>
+
+    <table class="griztable"  style="margin-left:auto; margin-right:auto; text-align:center;">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Week</th>
+            <th>ACWR</th>
+            <th>MISC</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <p>Format differently for how we will want the data to actually appear<br>
+    to the students/coaches.
+    <br>Maybe to avoid redundancy, remove the name and have it static on the page?
+    <br>Filter of the table to show specific data ie ACWR, distance ran, data for the day, etc
+    <br>Probably search feature?</p>
+</div>
+
+
+<div class="footer">© 2022 University of Montana Athletics</div>
+
+
+<script>
+    window.onscroll = function() {myFunction()};
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+</script>
+
+</body>
+
+
+
+</html>
