@@ -1,5 +1,5 @@
 # pages/urls.py
-from django.urls import path, include
+from django.urls import path, include, re_path
 from .views import DashboardView, HomePageView, indexView, session_state_view
 
 urlpatterns = [
@@ -7,10 +7,10 @@ urlpatterns = [
     # path("", dataView, name="data"),
     path("templates/index.html", indexView.as_view(), name="index"),
     path("templates/dash_test.html", DashboardView.as_view(), name="dash_test"),
-    # path(
-    #     "dash_test",
-    #     session_state_view,
-    #     {"template_name": "dash_test.html"},
-    #     name="dash-test",
-    # ),
+    re_path(
+        "dash_test",
+        session_state_view,
+        {"template_name": "dash_test.html"},
+        name="dash_test",
+    ),
 ]

@@ -104,6 +104,6 @@ def session_state_view(request, template_name, **kwargs):
     session = request.session
 
     # Set up a context dict here
-    context = {}
+    context = {"user": request.user}
 
     return render(request, template_name=template_name, context=context)

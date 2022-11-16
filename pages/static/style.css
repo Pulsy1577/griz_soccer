@@ -1,4 +1,3 @@
-
 body {
     margin: 0;
     font-size: 28px;
@@ -7,21 +6,22 @@ body {
 
 }
 
-h3{
+h3 {
     text-align: center;
 }
-p{
+
+p {
     font-size: 16px;
-    margin-left:50px;
-    margin-right:50px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 .wrap {
     width: 100%;
 }
-#outer {
 
-}
+#outer {}
+
 #inner {
     width: 100%;
     height: 100%;
@@ -32,6 +32,7 @@ p{
     background: blue;
     opacity: 0.6;
 }
+
 #inner:after {
     content: "";
     background: blue;
@@ -42,6 +43,7 @@ p{
     top: -15px;
     left: -15px
 }
+
 .text {
     color: #FFF;
     position: relative;
@@ -64,8 +66,9 @@ p{
     border-bottom-style: solid;
     border-color: black;
 }
-#navbar img{
-    height:auto;
+
+#navbar img {
+    height: auto;
 }
 
 .topnav-centered a {
@@ -87,8 +90,10 @@ p{
     border-top-style: solid;
     border-top-color: black;
     font-size: 17px;
-    width: 23.83%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
-    text-align: center; /* If you want the text to be centered */
+    width: 23.83%;
+    /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    text-align: center;
+    /* If you want the text to be centered */
 }
 
 #navbar a:hover {
@@ -111,7 +116,7 @@ p{
     width: 100%;
 }
 
-.sticky + .content {
+.sticky+.content {
     padding-top: 60px;
 }
 
@@ -126,21 +131,25 @@ p{
     text-align: center;
 }
 
-<!-- style for the table to test -->
+/* <!-- style for the table to test --> */
 table.griztable {
     border: 3px solid #000000;
     width: 100%;
     text-align: center;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
 }
-table.griztable td, table.griztable th {
+
+table.griztable td,
+table.griztable th {
     border: 1px solid #000000;
     padding: 4px 4px;
 }
+
 table.griztable tbody td {
     font-size: 13px;
 }
+
 table.griztable thead {
     background: #70002E;
     background: -moz-linear-gradient(top, #944062 0%, #7e1943 66%, #70002E 100%);
@@ -148,12 +157,14 @@ table.griztable thead {
     background: linear-gradient(to bottom, #944062 0%, #7e1943 66%, #70002E 100%);
     border-bottom: 3px solid #000000;
 }
+
 table.griztable thead th {
     font-size: 15px;
     font-weight: bold;
     color: #FFFFFF;
 
 }
+
 table.griztable tfoot td {
     font-size: 14px;
 }
@@ -236,6 +247,6 @@ table.griztable tfoot td {
     color: #079A82;
 }
 
- /* get colors off of UMT website */
+/* get colors off of UMT website */
 /* https://www.umt.edu/brand/colors.php
 Have to eventually contact Grizzly Athletics Marketing for use of logo*/

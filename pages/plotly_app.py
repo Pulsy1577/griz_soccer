@@ -144,7 +144,8 @@ def update_charts(Name, start_date, end_date, stat_type):
 
     # TODO figure out how to modify this chart more i.e. shapes and lines
     # ALSO figure out how to limit resizing of the chart
-    acwr_char_figure = [
+
+    acwr_chart_figure = [
         {
             "data": [
                 {
@@ -166,7 +167,7 @@ def update_charts(Name, start_date, end_date, stat_type):
             "config": {"displayModeBar": False},
         }
     ]
-    return acwr_char_figure
+    return acwr_chart_figure
 
 
 if __name__ == "__main__":
