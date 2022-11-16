@@ -170,5 +170,23 @@ def update_charts(Name, start_date, end_date, stat_type):
     return acwr_chart_figure
 
 
+@app.callback(
+    dash.dependencies.Output("player-filter", "value"),
+    [
+        dash.dependencies.Input("url", "pathname"),
+    ],
+)
+def session_callback(session_state=None, **kwargs):
+    if session_state is None:
+        raise NotImplementedError("Cannot handle a missing session state")
+    csf = session_state.get("dash_test_state", None)
+    if not csf:
+        session_state["dash_test_state"] = csf
+    else:
+        csf["user"] = session_state.get("user", None)
+    print(csf["user"])
+    return csf["user"]
+
+
 if __name__ == "__main__":
     app.run_server(debug=True)
