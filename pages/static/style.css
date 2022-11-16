@@ -1,9 +1,168 @@
+
 body {
-    font-family: "Lato", sans-serif;
     margin: 0;
-    background-color: #F7F7F7;
+    font-size: 28px;
+    text-align: center;
+    font-family: Open Sans, sans-serif;
+
 }
 
+h3{
+    text-align: center;
+}
+p{
+    font-size: 16px;
+    margin-left:50px;
+    margin-right:50px;
+}
+
+.wrap {
+    width: 100%;
+}
+#outer {
+
+}
+#inner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background: blue;
+    opacity: 0.6;
+}
+#inner:after {
+    content: "";
+    background: blue;
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    position: absolute;
+    top: -15px;
+    left: -15px
+}
+.text {
+    color: #FFF;
+    position: relative;
+}
+
+.header {
+    background-image: url("soccerimg.png");
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: 1500px 900px;
+    background-position: center 75%;
+    padding: 100px;
+    text-align: center;
+}
+
+#navbar {
+    background-image: url("soclogo.png");
+    padding-top: 170px;
+    overflow: hidden;
+    border-bottom-style: solid;
+    border-color: black;
+}
+#navbar img{
+    height:auto;
+}
+
+.topnav-centered a {
+    float: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+#navbar a {
+    float: left;
+    padding: 8px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #70002e;
+    border-top-style: solid;
+    border-top-color: black;
+    font-size: 17px;
+    width: 23.83%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    text-align: center; /* If you want the text to be centered */
+}
+
+#navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+#navbar a.active {
+    background-color: #70002E;
+    color: white;
+}
+
+.content {
+    padding: 16px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky + .content {
+    padding-top: 60px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    font-size: 16px;
+    width: 100%;
+    background-color: #70002e;
+    color: white;
+    text-align: center;
+}
+
+<!-- style for the table to test -->
+table.griztable {
+    border: 3px solid #000000;
+    width: 100%;
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+}
+table.griztable td, table.griztable th {
+    border: 1px solid #000000;
+    padding: 4px 4px;
+}
+table.griztable tbody td {
+    font-size: 13px;
+}
+table.griztable thead {
+    background: #70002E;
+    background: -moz-linear-gradient(top, #944062 0%, #7e1943 66%, #70002E 100%);
+    background: -webkit-linear-gradient(top, #944062 0%, #7e1943 66%, #70002E 100%);
+    background: linear-gradient(to bottom, #944062 0%, #7e1943 66%, #70002E 100%);
+    border-bottom: 3px solid #000000;
+}
+table.griztable thead th {
+    font-size: 15px;
+    font-weight: bold;
+    color: #FFFFFF;
+
+}
+table.griztable tfoot td {
+    font-size: 14px;
+}
+
+
+
+
+
+/* From .css that was originally in the .CSS */
 .header {
     background-color: #222222;
     height: 288px;
@@ -76,3 +235,7 @@ body {
     font-weight: bold;
     color: #079A82;
 }
+
+ /* get colors off of UMT website */
+/* https://www.umt.edu/brand/colors.php
+Have to eventually contact Grizzly Athletics Marketing for use of logo*/
