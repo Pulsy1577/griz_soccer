@@ -1,8 +1,10 @@
+{% load static %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Griz Soccer Analytics</title>
 </head>
 <body style="text-align:center;">
@@ -11,9 +13,9 @@
 
 <div id="navbar">
     <!--<img src="soclogo.png" alt="griz logo" >-->
-    <a href="index.html">HOME</a>
-    <a class="active" href="data.html">DATA</a>
-    <a href="about.html">ABOUT</a>
+    <a href="{% url 'home' %}">HOME</a>
+    <a class="active" href="{% url 'data' %}">DATA</a>
+    <a href="{% url 'about' %}">ABOUT</a>
     <a href="loginpage.html">LOGIN</a>
 
 </div>
@@ -85,3 +87,4 @@
 
 
 </html>
+{% endblock content %}

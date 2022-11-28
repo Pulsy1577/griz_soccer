@@ -98,6 +98,17 @@ class HomePageView(TemplateView):
 
         return ctx
 
+#create and assign the respective HTML files for the pages
+class aboutView(TemplateView):
+    template_name = "about.html"
+
+class dataView(TemplateView):
+    template_name = "data.html"
+
+
+
+
+
 
 def session_state_view(request, template_name, **kwargs):
 
