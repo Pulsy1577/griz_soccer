@@ -17,9 +17,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 conn = sqlite3.connect("stats_db.sqlite3")
 df_from_db = pd.read_sql_query("SELECT * FROM sdata", conn)
 
+
 data = df_from_db
 data.Date = pd.to_datetime(data.Date)
 data.sort_values("Date", inplace=True)
+
 
 ext_stylesheets = [
     {
@@ -45,11 +47,11 @@ stat_types = [
     "Load_3D",
 ]
 
-app = DjangoDash("ACWR_App", external_stylesheets=ext_stylesheets)
+app = DjangoDash(name="ACWR_App", external_stylesheets=ext_stylesheets)
 app.title = "Griz Soccer Analytics: Understand Your Data!"
-
 app.layout = dhtml.Div(
     children=[
+        dcc.Input(id="user", type="hidden", value="filler text"),
         dhtml.Div(
             children=[
                 dhtml.P(children="⚽", className="header-emoji"),
@@ -132,10 +134,12 @@ app.layout = dhtml.Div(
         Input("date-range", "start_date"),
         Input("date-range", "end_date"),
         Input("type-filter", "value"),
+        Input("user", "value"),
     ],
 )
 # TODO add rects for ACWR zones (conditional to stat type)
-def update_charts(Name, start_date, end_date, stat_type):
+def update_charts(Name, start_date, end_date, stat_type, user):
+    # print(user)
     mask = (data.Name == Name) & (data.Date >= start_date) & (data.Date <= end_date)
     filtered_data = data.loc[mask, :]
     y_range = [filtered_data[stat_type].min(), filtered_data[stat_type].max()]
@@ -170,22 +174,28 @@ def update_charts(Name, start_date, end_date, stat_type):
     return acwr_chart_figure
 
 
-@app.callback(
-    dash.dependencies.Output("player-filter", "value"),
-    [
-        dash.dependencies.Input("url", "pathname"),
-    ],
-)
-def session_callback(session_state=None, **kwargs):
-    if session_state is None:
-        raise NotImplementedError("Cannot handle a missing session state")
-    csf = session_state.get("dash_test_state", None)
-    if not csf:
-        session_state["dash_test_state"] = csf
-    else:
-        csf["user"] = session_state.get("user", None)
-    print(csf["user"])
-    return csf["user"]
+# @app.callback(
+#     dash.dependencies.Output("player-filter", "value"),
+#     [
+#         dash.dependencies.Input("url", "pathname"),
+#     ],
+# )
+# def session_callback(session_state=None, **kwargs):
+#     if session_state is None:
+#         raise NotImplementedError("Cannot handle a missing session state")
+#     csf = session_state.get("dash_test_state", None)
+#     if not csf:
+#         session_state["dash_test_state"] = csf
+#     else:
+#         csf["user"] = session_state.get("user", None)
+#     print(csf["user"])
+#     return csf["user"]
+
+
+# @app.expanded_callback([Input("user", "value")])
+# def display_output(value):
+#     print(value)
+#     return value
 
 
 if __name__ == "__main__":

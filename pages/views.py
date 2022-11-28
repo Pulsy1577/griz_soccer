@@ -8,6 +8,8 @@ import pandas as pd
 import numpy as np
 from django.contrib.auth.mixins import LoginRequiredMixin
 from oauth2client.service_account import ServiceAccountCredentials
+from django.forms.models import model_to_dict
+import re
 
 
 class indexView(LoginRequiredMixin, TemplateView):
@@ -36,14 +38,13 @@ class indexView(LoginRequiredMixin, TemplateView):
 class DashboardView(TemplateView):
     template_name = "dash_test.html"
 
-    # def get(self, request):
-    #     # print (self.request)  # Works!
-    #     # return super(indexView, self).dispatch(request, *args, **kwargs)  # Don't forget this
-    #     print(self.request.user)
-    #     user = self.request.user
-    #     template_name = "dash_test.html"
-    #     # return HttpResponse(template_name)
-    #     return render(self.request, template_name)
+    def get(self, request):
+        # print (self.request)  # Works!
+        # return super(indexView, self).dispatch(request, *args, **kwargs)  # Don't forget this
+        user = self.request.user
+        template_name = "dash_test.html"
+        # return HttpResponse(template_name)
+        return render(self.request, template_name, {"user": user})
 
     def get_context_data(self, **kwargs):
 
@@ -53,7 +54,12 @@ class DashboardView(TemplateView):
 
         # Add your own entry
 
-        ctx["user"] = self.request.user
+        cur_user = self.request.user
+
+        p = re.compile("(?<!\\\\)'")
+        cur_user = p.sub('"', str(cur_user))
+
+        ctx["user"] = cur_user
 
         return ctx
 

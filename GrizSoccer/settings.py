@@ -124,10 +124,15 @@ STATIC_URL = "static/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_REDIRECT_URL = "home" 
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
 
-AUTH_USER_MODEL = "accounts.CustomUser" 
+AUTH_USER_MODEL = "accounts.CustomUser"
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
+
+PLOTLY_DASH = {
+    # Flag to control location of initial argument storage
+    "cache_arguments": False,
+}

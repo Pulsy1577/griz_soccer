@@ -3,5 +3,8 @@
 {% block content %}
   {% load static %}
   <link href="{% static 'style.css' %}" rel="stylesheet">
-  <div style="width: 1000px;">{% plotly_app name="ACWR_App" ratio=1 %}</div>
+  user = {{ user }}
+  <div style="width: 80%;">{% plotly_app name="ACWR_App" ratio=1 %}</div>
+  {% comment %} FIXME need to be able to pass initial args to plotly app, currently errors out JSONDecodeError (expected property name in double quotes) {% endcomment %}
+  {% comment %} <div style="width: 80%;">{% plotly_app name="ACWR_App" ratio=1 initial_arguments="{{ user }}" %}</div> {% endcomment %}
 {% endblock content %}
