@@ -105,7 +105,8 @@ class aboutView(TemplateView):
 class dataView(TemplateView):
     template_name = "data.html"
 
-
+class indexView(TemplateView):
+    template_name = "index.html"
 
 
 

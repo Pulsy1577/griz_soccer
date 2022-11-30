@@ -1,21 +1,16 @@
+{% extends "base.html" %}
 {% load static %}
 <!DOCTYPE html>
+
 {% block content %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'style.css' %}">
     <title>Griz Soccer Analytics</title>
 </head>
 <body>
-<div id="navbar">
-    <!--<img src="soclogo.png" alt="griz logo" >-->
-    <a href="{% url 'home' %}">HOME</a>
-    <a href="{% url 'data' %}">DATA</a>
-    <a class="active" href="{% url 'about' %}">ABOUT</a>
-    <a href="loginpage.html">LOGIN</a>
 
-</div>
 
 <div class="content">
     <h3>About</h3>

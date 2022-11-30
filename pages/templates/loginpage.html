@@ -60,14 +60,6 @@
 </head>
 <body>
 
-<div id="navbar">
-    <!--<img src="soclogo.png" alt="griz logo" >-->
-    <a  href="index.html">HOME</a>
-    <a href="data.html">DATA</a>
-    <a href="about.html">ABOUT</a>
-    <a class="active" href="loginpage.html">LOGIN</a>
-
-</div>
 <form method ="post">{% csrf_token %}
   {{ form.as_p }}
     <div class="container">
