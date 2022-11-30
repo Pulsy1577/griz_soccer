@@ -64,7 +64,7 @@ class coachView(TemplateView):
 
 class HomePageView(TemplateView):
 
-    template_name = "home.html"
+    template_name = "index.html"
 
     def get_context_data(self, **kwargs):
 

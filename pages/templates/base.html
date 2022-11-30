@@ -2,8 +2,7 @@
 <html>
 <head>
     <title>Griz Soccer</title>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400"  rel="stylesheet">
     <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -29,7 +28,7 @@
     <p><a href="{% url 'logout' %}">Log out</a></p>
     {% else %}
     <p>You are not logged in.</p>
-    <!--<a href="{% url 'login' %}">Log In</a>-->
+    <a href="{% url 'login' %}">Log In</a>
 
     {% endif %}
     {% block content %}

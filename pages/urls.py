@@ -11,7 +11,7 @@ urlpatterns = [
     re_path(
         "dash_test",
         session_state_view,
-        {"template_name": "dash_test.html"},
+        {"template_name": "index.html"},
         name="dash_test",
     ),
 
