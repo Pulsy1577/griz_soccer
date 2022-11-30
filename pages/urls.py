@@ -1,6 +1,6 @@
 # pages/urls.py
 from django.urls import path, include, re_path
-from .views import DashboardView, aboutView, indexView,dataView, HomePageView, indexView, session_state_view
+from .views import DashboardView, loginView, aboutView, indexView,dataView, HomePageView, indexView, session_state_view
 
 urlpatterns = [
     path("", HomePageView.as_view(), name="home"),
@@ -19,4 +19,5 @@ urlpatterns = [
     path("templates/about.html", aboutView.as_view(), name='about'),
     path("templates/data.html", dataView.as_view(), name='data'),
     path("templates/index.html", indexView.as_view(), name='index'),
+    path("templates/registration/login.html", loginView.as_view(), name='login'),
 ]

@@ -108,6 +108,9 @@ class dataView(TemplateView):
 class indexView(TemplateView):
     template_name = "index.html"
 
+class loginView(TemplateView):
+    template_name = "login.html"
+
 
 
 
