@@ -48,9 +48,13 @@ stat_types = [
 ]
 
 app = DjangoDash(name="ACWR_App", external_stylesheets=ext_stylesheets)
+
 app.title = "Griz Soccer Analytics: Understand Your Data!"
 app.layout = dhtml.Div(
     children=[
+        dhtml.P(
+            children="Griz Soccer Analytics",
+        ),
         dcc.Input(id="user", type="hidden", value="filler text"),
         dhtml.Div(
             children=[
