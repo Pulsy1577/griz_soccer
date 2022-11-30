@@ -56,6 +56,7 @@ class DashboardView(TemplateView):
 
         cur_user = self.request.user
 
+        # meant to fix a json error
         p = re.compile("(?<!\\\\)'")
         cur_user = p.sub('"', str(cur_user))
 

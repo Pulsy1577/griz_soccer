@@ -22,7 +22,6 @@ data = df_from_db
 data.Date = pd.to_datetime(data.Date)
 data.sort_values("Date", inplace=True)
 
-
 ext_stylesheets = [
     {
         "href": "https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap",
@@ -47,14 +46,13 @@ stat_types = [
     "Load_3D",
 ]
 
+# TODO get the username from the template
 app = DjangoDash(name="ACWR_App", external_stylesheets=ext_stylesheets)
 
 app.title = "Griz Soccer Analytics: Understand Your Data!"
 app.layout = dhtml.Div(
     children=[
-        dhtml.P(
-            children="Griz Soccer Analytics",
-        ),
+        dcc.Input(id="name_id", type="hidden", value="filler text"),
         dcc.Input(id="user", type="hidden", value="filler text"),
         dhtml.Div(
             children=[
@@ -176,6 +174,11 @@ def update_charts(Name, start_date, end_date, stat_type, user):
         }
     ]
     return acwr_chart_figure
+
+
+@app.expanded_callback([Input("name_id", "value")])
+def display_output(value):
+    print(value)
 
 
 # @app.callback(
