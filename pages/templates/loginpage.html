@@ -1,10 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
 <!DOCTYPE html>
 <html>
 <head>
     <!--https://stackoverflow.com/questions/55369645/how-to-customize-default-auth-login-form-in-django -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Login </title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <style>
         button {
             background: #70002e;
@@ -57,15 +60,8 @@
 </head>
 <body>
 
-<div id="navbar">
-    <!--<img src="soclogo.png" alt="griz logo" >-->
-    <a  href="index.html">HOME</a>
-    <a href="data.html">DATA</a>
-    <a href="about.html">ABOUT</a>
-    <a class="active" href="loginpage.html">LOGIN</a>
-
-</div>
-<form>
+<form method ="post">{% csrf_token %}
+  {{ form.as_p }}
     <div class="container">
         <p>Use your NetID and password:</p>
 
@@ -82,3 +78,4 @@
 <div class="footer">©2022 University of Montana Athletics</div>
 </body>
 </html>
+{% endblock content %}

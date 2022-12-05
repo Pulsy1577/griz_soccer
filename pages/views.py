@@ -71,7 +71,7 @@ class coachView(TemplateView):
 
 class HomePageView(TemplateView):
 
-    template_name = "home.html"
+    template_name = "index.html"
 
     def get_context_data(self, **kwargs):
 
@@ -104,6 +104,21 @@ class HomePageView(TemplateView):
         ctx["ian"] = "Lets go!"
 
         return ctx
+
+#create and assign the respective HTML files for the pages
+class aboutView(TemplateView):
+    template_name = "about.html"
+
+class dataView(TemplateView):
+    template_name = "data.html"
+
+class indexView(TemplateView):
+    template_name = "index.html"
+
+class loginView(TemplateView):
+    template_name = "login.html"
+
+
 
 
 def session_state_view(request, template_name, **kwargs):

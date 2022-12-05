@@ -1,19 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
 <!DOCTYPE html>
+
+{% block content %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="{% static 'style.css' %}">
     <title>Griz Soccer Analytics</title>
 </head>
 <body>
-<div id="navbar">
-    <!--<img src="soclogo.png" alt="griz logo" >-->
-    <a href="index.html">HOME</a>
-    <a href="data.html">DATA</a>
-    <a class="active" href="about.html">ABOUT</a>
-    <a href="loginpage.html">LOGIN</a>
 
-</div>
 
 <div class="content">
     <h3>About</h3>
@@ -41,3 +38,4 @@
 
 </body>
 </html>
+{% endblock content %}

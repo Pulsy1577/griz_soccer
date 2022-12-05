@@ -1,22 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>Griz Soccer Analytics</title>
 </head>
 
 <body>
 
-
-<div id="navbar">
-    <!--<img src="soclogo.png" alt="griz logo" >-->
-    <a class="active" href="index.html">HOME</a>
-    <a href="data.html">DATA</a>
-    <a href="about.html">ABOUT</a>
-    <a href="loginpage.html">LOGIN</a>
-
-</div>
 
 <div class="content">
     <h3>Griz Soccer Analytics</h3>
@@ -47,3 +41,5 @@
 <div class="footer">© 2022 University of Montana Athletics</div>
 </body>
 </html>
+
+{% endblock content %}
